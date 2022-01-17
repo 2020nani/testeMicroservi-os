@@ -1,0 +1,28 @@
+#APP SPECIFIC CUSTOM PROPERTIES
+order:
+  topic: teste
+#SPRING PROPERTIES
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+      #properties:
+      #Server host name verification is disabled by setting ssl.endpoint.identification.algorithm to an empty string
+      #ssl.endpoint.identification.algorithm:
+      #ssl:
+      #  protocol: SSL
+      #  trust-store-location: classpath:/app/store/truststore.jks
+      #  trust-store-password: <TURST_STORE_PASSWORD>
+      #  key-store-location: classpath:/app/store/keystore.jks
+      #  key-store-password: <KEY_STORE_PASSWORD>
+      #  key-password: <KEY_PASSWORD>
+    producer:
+      retries: 1
+      acks: all
+      group-id: group-id
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+auto:
+  create:
+    topics:
+      enable=true:
+
