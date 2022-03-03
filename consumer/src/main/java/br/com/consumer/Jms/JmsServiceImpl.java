@@ -23,7 +23,6 @@ public class JmsServiceImpl {
 
 
     @JmsListener(destination = "queue.sample")
-    //@SendTo("outbound.queue.sample")
     public void onReceiverQueue(String message) {
         logger.info("message received: {}", message);
         UserDto usuarioDto = serializer.fromJson(message, UserDto.class);

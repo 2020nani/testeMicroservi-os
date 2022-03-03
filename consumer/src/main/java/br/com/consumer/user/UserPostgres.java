@@ -1,13 +1,12 @@
 package br.com.consumer.user;
 
-import lombok.Builder;
+
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
+
 
 @Data
 @Entity
@@ -30,8 +29,6 @@ public class UserPostgres {
     @Column(unique = true)
     private String cpf;
 
-    private Boolean admin;
-
     public Long getUserId() {
         return userId;
     }
@@ -48,18 +45,14 @@ public class UserPostgres {
         return cpf;
     }
 
-    public Boolean getAdmin() {
-        return admin;
-    }
 
     @Deprecated
     public UserPostgres() {
     }
 
-    public UserPostgres(String name, String email, String cpf, Boolean admin) {
+    public UserPostgres(String name, String email, String cpf) {
         this.name = name;
         this.email = email;
         this.cpf = cpf;
-        this.admin = admin;
     }
 }

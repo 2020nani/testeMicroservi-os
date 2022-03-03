@@ -4,12 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.br.CPF;
-
-import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -30,8 +24,6 @@ public class UserRedis implements Serializable {
 
     private String cpf;
 
-    private Boolean admin;
-
     public static List<Object> retornaListaUsuarios(Map<String, UserRedis> users) {
         List<Object> userRedisLista = new ArrayList<>();
         Iterator userIterator = users.entrySet().iterator();
@@ -50,13 +42,12 @@ public class UserRedis implements Serializable {
                 .name(usuario.getName())
                 .email(usuario.getEmail())
                 .cpf(usuario.getCpf())
-                .admin(usuario.getAdmin())
                 .build();
         return usuarioDatabase;
     }
 
     public UserPostgres converte() {
 
-        return new UserPostgres(name,email,cpf,admin);
+        return new UserPostgres(name,email,cpf);
     }
 }

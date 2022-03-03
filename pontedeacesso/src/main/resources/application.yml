@@ -1,6 +1,6 @@
 #APP SPECIFIC CUSTOM PROPERTIES
 order:
-  topic: teste
+  topic: cadastra-usuario
 #SPRING PROPERTIES
 spring:
   kafka:

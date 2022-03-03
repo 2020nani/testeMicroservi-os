@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/")
@@ -32,17 +31,22 @@ public class UserController {
 
     @PostMapping("user")
     public String criaUsuario(@RequestBody UserRedis usuarioRedis){
-        redisRepository.deleteItem(usuarioRedis.getId());
+        UserRedis userRedisExiste = redisRepository.getUser(usuarioRedis.getId());
+        if(userRedisExiste == null) {
+            return "Nao ha este usuario no banco de memoria";
+        }
         logger.info("Salvando usuario " + usuarioRedis.getName());
         UserPostgres usuario = usuarioRedis.converte();
         String message = userService.save(usuario);
         logger.info(message);
+        if(message == "Salvo com sucesso") {
+            redisRepository.deleteItem(usuarioRedis.getId());
+        }
         return message;
     }
 
     @DeleteMapping("user/{id}")
     public void deletaUsuarioRedis(@PathVariable String id){
-        System.out.println(id);
         redisRepository.deleteItem(id);
     }
 

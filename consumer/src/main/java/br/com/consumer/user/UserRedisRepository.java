@@ -3,8 +3,6 @@ package br.com.consumer.user;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
-
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 

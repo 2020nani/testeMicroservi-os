@@ -1,4 +1,4 @@
-package br.com.orquestrador.core.ListenerKafka.dto;
+package br.com.orquestrador.application.ListenerKafka.dto;
 
 import br.com.orquestrador.user.User;
 import com.google.gson.Gson;

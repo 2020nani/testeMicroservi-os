@@ -1,6 +1,6 @@
-package br.com.orquestrador.core.ListenerKafka;
+package br.com.orquestrador.application.ListenerKafka;
 
-import br.com.orquestrador.core.ListenerKafka.dto.UserDto;
+import br.com.orquestrador.application.ListenerKafka.dto.UserDto;
 import br.com.orquestrador.user.User;
 import br.com.orquestrador.user.UserService;
 import com.google.gson.Gson;
@@ -31,7 +31,7 @@ public class KafkaConsumer {
         this.serializer = serializer;
     }
 
-    @KafkaListener(topics = "${order.topic}", groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "${user.topic}", groupId = "${spring.kafka.consumer.group-id}")
     public void receive( @Payload String message)  {
         logger.info("message received: {}", message);
         UserDto usuarioDto = serializer.fromJson(message, UserDto.class);

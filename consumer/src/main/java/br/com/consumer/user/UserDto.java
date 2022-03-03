@@ -21,21 +21,13 @@ public class UserDto {
     @NotBlank
     private String cpf;
 
-    private Boolean admin;
-
-    public UserDto(String name, String email, String cpf, Boolean admin) {
+    public UserDto(String name, String email, String cpf) {
         this.name = name;
         this.email = email;
         this.cpf = cpf;
-        this.admin = admin;
     }
 
     public UserDto() {
-    }
-
-
-    public UserPostgres converte() {
-      return new UserPostgres(name, email, cpf, admin);
     }
 
     public UserRedis converteRedis() {
