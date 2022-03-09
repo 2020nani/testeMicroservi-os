@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { ToastContainer } from 'react-toastify'
+import { Router } from 'react-router-dom';
+import Routes from './routes/index';
+import history from './services/history';
+import Globalstyles from './styles/global'
 
-function App() {
+
+
+export default function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+      <Router history={history}>
+        <Routes />
+        <Globalstyles />
+        < ToastContainer  autoClose={3000} />
+      </Router>
+      
   );
 }
-
-export default App;

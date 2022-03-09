@@ -23,12 +23,15 @@ public class UserController {
         this.redisRepository = redisRepository;
     }
 
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("redis/user")
     public List<Object> buscaUsuarioRedis(){
 
         return redisRepository.getAllUsers();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("user")
     public String criaUsuario(@RequestBody UserRedis usuarioRedis){
         UserRedis userRedisExiste = redisRepository.getUser(usuarioRedis.getId());
@@ -45,6 +48,7 @@ public class UserController {
         return message;
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("user/{id}")
     public void deletaUsuarioRedis(@PathVariable String id){
         redisRepository.deleteItem(id);
