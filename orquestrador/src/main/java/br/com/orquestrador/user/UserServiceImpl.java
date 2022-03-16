@@ -1,6 +1,6 @@
 package br.com.orquestrador.user;
 
-import br.com.orquestrador.infrastructure.repository.elasticsearch.UserRepository;
+import br.com.orquestrador.infrastructure.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

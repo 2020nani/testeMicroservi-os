@@ -25,8 +25,20 @@ export const Table = styled.table`
   tr:hover {background-color: #ddd;}
   th {
   padding: 0.5em;
-  text-align: left;
+  text-align: center;
   background-color: #04AA6D;
   color: white;
 }
+td {
+  padding: 0.5em;
+  text-align: center;
+  background-color: skyblue;
+  color: white;
+  button{
+    width:60px;
+    background-color: transparent;
+    border-radius: 10px;
+  }
+}
+
 `

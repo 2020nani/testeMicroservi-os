@@ -27,8 +27,10 @@ public class KafkaConsumer {
     private JmsTemplate jmsTemplate;
 
     @Autowired
-    public KafkaConsumer(Gson serializer) {
+    public KafkaConsumer(Gson serializer, UserService userService, JmsTemplate jmsTemplate) {
         this.serializer = serializer;
+        this.userService = userService;
+        this.jmsTemplate = jmsTemplate;
     }
 
     @KafkaListener(topics = "${user.topic}", groupId = "${spring.kafka.consumer.group-id}")
